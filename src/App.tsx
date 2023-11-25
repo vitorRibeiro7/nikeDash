@@ -1,11 +1,7 @@
-import { useState } from 'react';
-
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
     <>
-      <h1>Olá</h1>
+      <h1 className="text-lg underline">Hello World</h1>
     </>
   );
 }
