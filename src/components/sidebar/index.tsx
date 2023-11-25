@@ -28,7 +28,7 @@ const Sidebar = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="w-16 lg:w-64 bg-white h-full overflow-y-auto shadow-2xl min-h-screen z-50 duration-500">
+    <div className="w-16 lg:w-64 bg-white h-full shadow-2xl overflow-clip min-h-screen z-50 duration-500">
       <div className="flex items-center justify-center mt-8 w-fill h-32 p-1">
         <img src={NikeLogo} alt="Nike Logo" className="w-24" />
       </div>
