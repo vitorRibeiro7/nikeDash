@@ -8,7 +8,13 @@ module.exports = {
     'plugin:prettier/recommended',
   ],
   plugins: ['react-refresh', 'prettier'],
-  ignorePatterns: ['node_modules/', 'dist/', '.prettierrc.js', '.eslintrc.js', 'env.d.ts'],
+  ignorePatterns: [
+    'node_modules/',
+    'dist/',
+    '.prettierrc.js',
+    '.eslintrc.js',
+    'env.d.ts',
+  ],
   parser: '@typescript-eslint/parser',
   settings: {
     react: {
@@ -22,9 +28,14 @@ module.exports = {
     },
   },
   rules: {
-    'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
+    'react-refresh/only-export-components': [
+      'warn',
+      { allowConstantExport: true },
+    ],
     'prettier/prettier': 'error',
     'arrow-body-style': 'off',
     'prefer-arrow-callback': 'off',
+    'react/react-in-jsx-scope': 'off',
+    'react/jsx-uses-react': 'off',
   },
 };
