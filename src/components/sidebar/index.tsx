@@ -14,6 +14,12 @@ interface SidebarProps {
   setDisableSidebar: () => void;
 }
 
+type Item = {
+  name: string;
+  icon: JSX.Element;
+  navTo: string;
+};
+
 const Sidebar = ({
   itens,
   isVisible,
@@ -21,7 +27,7 @@ const Sidebar = ({
   setDisableSidebar,
   setEnableSidebar,
 }: SidebarProps) => {
-  const [active, setActive] = useState('Members');
+  const [active, setActive] = useState('');
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -32,10 +38,19 @@ const Sidebar = ({
     }
   }, [isMobile]);
 
+  const handleActive = (item: Item) => {
+    localStorage.setItem('active', item.name);
+    setActive(item.name);
+  };
+
+  useEffect(() => {
+    setActive(localStorage.getItem('active') || '');
+  }, []);
+
   return (
     isVisible && (
       <div
-        className={`sm:w-16 lg:w-64 bg-white h-full shadow-2xl overflow-clip min-h-screen z-50 duration-500 ${
+        className={`sm:w-16 lg:w-64 bg-white h-full shadow-2xl overflow-clip min-h-screen z-50 transition-all duration-500 ${
           isMobile && isVisible ? 'fixed w-8/12 top-0 left-0' : 'hidden'
         }}`}
       >
@@ -46,11 +61,11 @@ const Sidebar = ({
                 setDisableSidebar();
               }}
             >
-              <IoClose />
+              <IoClose size="30" />
             </button>
           </div>
         )}
-        <div className="flex items-center justify-center mt-4 w-fill h-32 p-1">
+        <div className="flex items-center justify-center mt-2 w-fill h-32 p-1">
           <img src={NikeLogo} alt="Nike Logo" className="w-24" />
         </div>
         <div className="">
@@ -58,13 +73,17 @@ const Sidebar = ({
             {itens.map((item, index) => (
               <button
                 key={index}
-                className={`flex items-center pl-5 py-3 transition-all duration-300 hover:bg-gray-200 cursor-pointer min-h-[52px] w-full border-l-4 ${
-                  active === item.name && ' border-[#4AD697]'
+                className={`flex items-center pl-5 py-3 transition-all duration-500 hover:bg-gray-200 cursor-pointer min-h-[52px] w-full border-l-4 ${
+                  active === item.name
+                    ? ' border-[#4AD697]'
+                    : 'border-transparent'
                 }`}
                 onClick={() => {
-                  setActive(item.name);
+                  handleActive(item);
                   navigate(item.navTo);
-                  setDisableSidebar();
+                  if (isMobile) {
+                    setDisableSidebar();
+                  }
                 }}
               >
                 <span
@@ -79,7 +98,7 @@ const Sidebar = ({
                     active === item.name ? 'text-[#151515]' : 'text-[#A4A4A4]'
                   } ${
                     !isMobile && 'hidden'
-                  } lg:block text-xl whitespace-pre overflow-hidden transition-all`}
+                  } lg:block text-xl whitespace-pre overflow-hidden transition-all duration-500`}
                 >
                   {item.name}
                 </h2>

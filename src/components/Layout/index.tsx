@@ -42,7 +42,7 @@ const Layout = ({ children }: LayoutProps) => {
     <div className="flex w-screen">
       <div
         className={`sm:flex w-16 lg:w-64 transition-all duration-500 ${
-          width < 640 && 'fixed w-64 top-0 left-0'
+          width < 640 && 'fixed top-0 left-0'
         }`}
       >
         <Sidebar
