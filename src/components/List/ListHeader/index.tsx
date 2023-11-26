@@ -7,8 +7,8 @@ import useWindowDimensions from '../../../hooks/useWindowDimensions';
 
 const statusOptions = [
   { text: 'All Members', disable: false, selected: true },
-  { text: 'Pending', disable: true },
-  { text: 'Cancelled', disable: true },
+  { text: 'Pending', disable: true, selected: false },
+  { text: 'Cancelled', disable: true, selected: false },
 ];
 
 const limitOptions = ['8', '12', '16', '20'];
