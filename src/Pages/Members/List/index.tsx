@@ -1,67 +1,11 @@
+import ListHeader from '../../../components/List/ListHeader';
+
 const ListMembers = () => {
   return (
-    <div>
-      <h1>List Members</h1>
-      <h1>List Members</h1>
-      <h1>List Members</h1>
-      <h1>List Members</h1>
-      <h1>List Members</h1>
-      <h1>List Members</h1>
-      <h1>List Members</h1>
-      <h1>List Members</h1>
-      <h1>List Members</h1>
-      <h1>List Members</h1>
-      <h1>List Members</h1>
-      <h1>List Members</h1>
-      <h1>List Members</h1>
-      <h1>List Members</h1>
-      <h1>List Members</h1>
-      <h1>List Members</h1>
-      <h1>List Members</h1>
-      <h1>List Members</h1>
-      <h1>List Members</h1>
-      <h1>List Members</h1>
-      <h1>List Members</h1>
-      <h1>List Members</h1>
-      <h1>List Members</h1>
-      <h1>List Members</h1>
-      <h1>List Members</h1>
-      <h1>List Members</h1>
-      <h1>List Members</h1>
-      <h1>List Members</h1>
-      <h1>List Members</h1>
-      <h1>List Members</h1>
-      <h1>List Members</h1>
-      <h1>List Members</h1>
-      <h1>List Members</h1>
-      <h1>List Members</h1>
-      <h1>List Members</h1>
-      <h1>List Members</h1>
-      <h1>List Members</h1>
-      <h1>List Members</h1>
-      <h1>List Members</h1>
-      <h1>List Members</h1>
-      <h1>List Members</h1>
-      <h1>List Members</h1>
-      <h1>List Members</h1>
-      <h1>List Members</h1>
-      <h1>List Members</h1>
-      <h1>List Members</h1>
-      <h1>List Members</h1>
-      <h1>List Members</h1>
-      <h1>List Members</h1>
-      <h1>List Members</h1>
-      <h1>List Members</h1>
-      <h1>List Members</h1>
-      <h1>List Members</h1>
-      <h1>List Members</h1>
-      <h1>List Members</h1>
-      <h1>List Members</h1>
-      <h1>List Members</h1>
-      <h1>List Members</h1>
-      <h1>List Members</h1>
-      <h1>List Members</h1>
-    </div>
+    <>
+      <h1 className="text-3xl md:text-4xl">Members</h1>
+      <ListHeader />
+    </>
   );
 };
 
