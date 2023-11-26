@@ -50,7 +50,7 @@ const Sidebar = ({
   return (
     isVisible && (
       <div
-        className={`sm:w-16 lg:w-64 bg-white h-full shadow-2xl overflow-clip min-h-screen z-50 transition-all duration-500 ${
+        className={`sm:w-16 lg:w-64 bg-white h-full shadow-1xl overflow-clip min-h-screen z-50 transition-all duration-500 ${
           isMobile && isVisible ? 'fixed w-8/12 top-0 left-0' : 'hidden'
         }}`}
       >
@@ -73,7 +73,7 @@ const Sidebar = ({
             {itens.map((item, index) => (
               <button
                 key={index}
-                className={`flex items-center pl-5 py-3 transition-all duration-500 hover:bg-gray-200 cursor-pointer min-h-[52px] w-full border-l-4 ${
+                className={`flex items-center pl-5 py-3 transition-all duration-500 hover:bg-gray-200 min-h-[52px] w-full border-l-4 ${
                   active === item.name
                     ? ' border-[#4AD697]'
                     : 'border-transparent'

@@ -11,7 +11,7 @@ const Header = ({ hamburgerOnClick }: HeaderProps) => {
   const { width } = useWindowDimensions();
 
   return (
-    <div className="bg-white w-auto grid grid-cols-3 items-center px-4 py-4 shadow-2xl">
+    <div className="bg-white w-auto grid grid-cols-3 items-center px-4 py-4 shadow-1xl">
       <div className="flex items-center justify-start">
         {width > 640 ? (
           <h1 className="font-bold">ADMIN</h1>

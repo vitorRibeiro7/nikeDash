@@ -5,6 +5,7 @@ import Sidebar from '../Sidebar';
 import { FaFolder, FaUsers } from 'react-icons/fa';
 import { AiFillControl } from 'react-icons/ai';
 import useWindowDimensions from '../../hooks/useWindowDimensions';
+import Container from './Container';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -57,9 +58,11 @@ const Layout = ({ children }: LayoutProps) => {
           }}
         />
       </div>
-      <div className="flex flex-col w-full max-h-screen">
+      <div className="flex flex-col w-full max-h-screen bg-[#f1f1f1]">
         <Header hamburgerOnClick={handleMobileVisible} />
-        <div className="p-5 overflow-y-scroll">{children}</div>
+        <div className="p-5">
+          <Container>{children}</Container>
+        </div>
       </div>
     </div>
   );
