@@ -28,7 +28,7 @@ const Card = ({ data }: CardProps) => {
   }
 
   return (
-    <button className="flex w-auto h-auto p-4 items-center border-b-2 rounded-md border-[#f1f1f1]">
+    <button className="flex w-auto h-fit p-4 items-center border-b-2 rounded-md border-[#f1f1f1]">
       <div className="p-2">
         <img
           src={data.picture}

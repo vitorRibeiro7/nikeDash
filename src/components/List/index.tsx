@@ -37,16 +37,16 @@ const List = ({
         search={search}
       />
       <div
-        className={`bg-white rounded-lg p-2 overflow-y-scroll h-[85%] max-h-[60vh] gap-2  ${
-          loading
-            ? 'animate-pulse flex justify-center items-center bg-red-600'
-            : 'grid grid-cols-1 auto-cols-min sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4'
-        }}`}
+        className={`bg-white rounded-lg p-2 overflow-y-scroll h-[85%] max-h-[60vh] gap-2 flex`}
       >
         {loading ? (
-          <p className="text-center">Loading...</p>
+          <div className="w-full h-full flex items-center justify-center">
+            <p className="text-center">Loading...</p>
+          </div>
         ) : (
-          data?.data?.map((item) => <Card key={item.id} data={item} />)
+          <div className="grid gap-2 grid-cols-[1fr] h-fit w-full sm:grid-cols-[1fr,1fr] md:grid-cols-[1fr,1fr,1fr] lg:grid-cols-[1fr,1fr,1fr,1fr]">
+            {data?.data?.map((item) => <Card key={item.id} data={item} />)}
+          </div>
         )}
       </div>
       <div className=" h-[5%]">
