@@ -9,10 +9,6 @@ interface CardProps {
 }
 
 const Card = ({ data }: CardProps) => {
-  const onClick = () => {
-    console.log(data);
-  };
-
   const name = `${data.firstName} ${data.lastName}`;
 
   let title = '';
@@ -32,10 +28,7 @@ const Card = ({ data }: CardProps) => {
   }
 
   return (
-    <button
-      className="flex w-auto h-auto p-4 items-center border-b-2 rounded-md border-[#f1f1f1]"
-      onClick={onClick}
-    >
+    <button className="flex w-auto h-auto p-4 items-center border-b-2 rounded-md border-[#f1f1f1]">
       <div className="p-2">
         <img
           src={data.picture}

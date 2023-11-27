@@ -1,7 +1,6 @@
 import { AiOutlineSearch } from 'react-icons/ai';
 import ButtonSelect from './ButtonSelect';
 import SearchInput from '../../Inputs/Search';
-import { useEffect, useState } from 'react';
 import SelectInput from '../../Inputs/Select';
 import useWindowDimensions from '../../../hooks/useWindowDimensions';
 
@@ -13,26 +12,28 @@ const statusOptions = [
 
 const limitOptions = ['8', '12', '16', '20'];
 
-const ListHeader = () => {
-  const [values, setValues] = useState({
-    status: 'All Members',
-    search: '',
-    limit: '8',
-  });
+interface ListHeaderProps {
+  limit: number;
+  search: string;
+  changeLimit: (limit: number) => void;
+  changeSearch: (search: string) => void;
+}
 
+const ListHeader = ({
+  search,
+  limit,
+  changeLimit,
+  changeSearch,
+}: ListHeaderProps) => {
   const { width } = useWindowDimensions();
 
-  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setValues({ ...values, search: e.target.value });
-  };
-
   const handleLimit = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setValues({ ...values, limit: e.target.value });
+    changeLimit(parseInt(e.target.value));
   };
 
-  useEffect(() => {
-    console.log(values);
-  }, [values]);
+  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+    changeSearch?.(e.target.value);
+  };
 
   return (
     <div
@@ -51,13 +52,13 @@ const ListHeader = () => {
           placeholder="Search"
           startIcon={<AiOutlineSearch size="20" />}
           onChange={handleSearch}
-          value={values.search}
+          value={search}
         />
         <SelectInput
           options={limitOptions}
           id="limit"
           onChange={handleLimit}
-          value={values.limit}
+          value={limit.toString()}
         />
       </div>
     </div>

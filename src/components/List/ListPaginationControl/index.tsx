@@ -12,13 +12,13 @@ const ListPaginationControl = ({
   handlePage,
 }: ListPaginationControlProps) => {
   const next = () => {
-    if (page < maxPages) {
+    if (page < maxPages - 1) {
       handlePage(page + 1);
     }
   };
 
   const prev = () => {
-    if (page > 1) {
+    if (page > 0) {
       handlePage(page - 1);
     }
   };
@@ -29,7 +29,7 @@ const ListPaginationControl = ({
         <FaChevronLeft />
       </button>
       <div className="flex items-center justify-center h-full w-8 px-2">
-        <p className="text-xl">{page}</p>
+        <p className="text-xl">{page + 1}</p>
       </div>
       <button className="bg-[#4AD697] p-2 w-8" onClick={next}>
         <FaChevronRight />
