@@ -4,7 +4,7 @@ interface ContainerProps {
 
 const Container = ({ children }: ContainerProps) => {
   return (
-    <div className="w-[100%] h-[100%] flex flex-col gap-5">{children}</div>
+    <div className="w-[100%] h-[100%] flex flex-col gap-5 p-4">{children}</div>
   );
 };
 

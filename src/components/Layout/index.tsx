@@ -58,11 +58,9 @@ const Layout = ({ children }: LayoutProps) => {
           }}
         />
       </div>
-      <div className="flex flex-col w-full max-h-screen bg-[#f1f1f1]">
+      <div className="flex flex-col w-full min-h-screen bg-[#f1f1f1]">
         <Header hamburgerOnClick={handleMobileVisible} />
-        <div className="p-5">
-          <Container>{children}</Container>
-        </div>
+        <Container>{children}</Container>
       </div>
     </div>
   );
