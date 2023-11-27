@@ -1,46 +1,37 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import ListPaginationControl from './ListPaginationControl';
 import Card from './Card';
 import ListHeader from './ListHeader';
 import { UserResponse } from '../../services/api';
+import { ListParams } from '../../types/list';
 
 interface ListProps {
   data?: UserResponse; //todo: remove undefined
   loading?: boolean;
-  fetch?: (page: number, limit: number) => void;
+  page: number;
+  limit: number;
+  maxPages: number;
+  handleParams?: (params: ListParams) => void;
 }
 
-const List = ({ data, loading, fetch }: ListProps) => {
-  const [page, setPage] = useState(0);
-  const [limit, setLimit] = useState(8);
+const List = ({
+  data,
+  loading,
+  page,
+  limit,
+  maxPages,
+  handleParams,
+}: ListProps) => {
   const [search, setSearch] = useState('');
-
-  const maxPages = data?.total ? Math.ceil(data?.total / limit) : 1;
-
-  const handlePage = (page: number) => {
-    setPage(page);
-  };
-
-  const handleLimit = (limit: number) => {
-    setLimit(limit);
-  };
 
   const handleSearch = (search: string) => {
     setSearch(search);
   };
 
-  useEffect(() => {
-    if (page > maxPages) {
-      setPage(maxPages - 1);
-    }
-
-    fetch?.(page, limit);
-  }, [page, limit, search]);
-
   return (
     <div className={`flex flex-col w-full h-[100%] justify-between gap-1`}>
       <ListHeader
-        changeLimit={handleLimit}
+        changeLimit={(limit) => handleParams?.({ limit: limit })}
         changeSearch={handleSearch}
         limit={limit}
         search={search}
@@ -49,7 +40,7 @@ const List = ({ data, loading, fetch }: ListProps) => {
         className={`bg-white rounded-lg p-2 overflow-y-scroll h-[85%] max-h-[60vh] gap-2  ${
           loading
             ? 'animate-pulse flex justify-center items-center bg-red-600'
-            : 'grid grid-cols-1 auto-cols-min sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4'
+            : 'grid grid-cols-1 auto-cols-min sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4'
         }}`}
       >
         {loading ? (
@@ -66,7 +57,8 @@ const List = ({ data, loading, fetch }: ListProps) => {
       <ListPaginationControl
         maxPages={maxPages > 0 ? maxPages : 1}
         page={page}
-        handlePage={handlePage}
+        disabled={loading}
+        handlePage={(page) => handleParams?.({ page: page })}
       />
     </div>
   );
