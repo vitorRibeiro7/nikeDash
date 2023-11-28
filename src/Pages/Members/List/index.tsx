@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import List from '../../../components/List';
 import { UserResponse, getUsers } from '../../../services/api';
 import { useQuery } from 'react-query';
@@ -7,12 +7,13 @@ import { ListParams } from '../../../types/list';
 const ListMembers = () => {
   const [params, setParams] = useState({
     page: 0,
-    limit: 8,
+    limit: 10,
   });
 
   const { data, isLoading, refetch, isFetching } = useQuery<UserResponse>(
     'users',
-    () => getUsers(params.page, params.limit)
+    () => getUsers(params.page, params.limit),
+    { staleTime: 5000, cacheTime: 10 }
   );
 
   useEffect(() => {
@@ -29,9 +30,12 @@ const ListMembers = () => {
     refetch?.();
   }, [params.limit]);
 
-  const handleParams = (newParams: ListParams) => {
-    setParams({ ...params, ...newParams });
-  };
+  const handleParams = useCallback(
+    (newParams: ListParams) => {
+      setParams({ ...params, ...newParams });
+    },
+    [params]
+  );
 
   return (
     <>

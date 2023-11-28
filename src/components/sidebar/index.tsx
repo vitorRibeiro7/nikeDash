@@ -1,5 +1,5 @@
 import NikeLogo from '../../assets/logos/nike.svg';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
 import { IoClose } from 'react-icons/io5';
 
@@ -38,10 +38,10 @@ const Sidebar = ({
     }
   }, [isMobile]);
 
-  const handleActive = (item: Item) => {
+  const handleActive = useCallback((item: Item) => {
     localStorage.setItem('active', item.name);
     setActive(item.name);
-  };
+  }, []);
 
   useEffect(() => {
     setActive(localStorage.getItem('active') || '');
