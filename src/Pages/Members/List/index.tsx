@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from 'react';
 import List from '../../../components/List';
-import { UserResponse, getUsers } from '../../../services/api';
+import { getAllUsersResponse, getUsers } from '../../../services/api';
 import { useQuery } from 'react-query';
 import { ListParams } from '../../../types/list';
 
@@ -10,11 +10,12 @@ const ListMembers = () => {
     limit: 10,
   });
 
-  const { data, isLoading, refetch, isFetching } = useQuery<UserResponse>(
-    'users',
-    () => getUsers(params.page, params.limit),
-    { staleTime: 5000, cacheTime: 10 }
-  );
+  const { data, isLoading, refetch, isFetching } =
+    useQuery<getAllUsersResponse>(
+      'users',
+      () => getUsers(params.page, params.limit),
+      { staleTime: 1000 * 60 * 1, cacheTime: 10 }
+    );
 
   useEffect(() => {
     refetch();
