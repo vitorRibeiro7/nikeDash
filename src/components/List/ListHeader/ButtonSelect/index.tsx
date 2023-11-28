@@ -1,5 +1,5 @@
 interface ButtonSelectProps {
-  key: number;
+  index: number;
   option: {
     text: string;
     disable: boolean;
@@ -9,10 +9,10 @@ interface ButtonSelectProps {
 
 //todo; implement function to select filter by
 
-const ButtonSelect = ({ key, option }: ButtonSelectProps) => {
+const ButtonSelect = ({ index, option }: ButtonSelectProps) => {
   return (
     <button
-      key={key}
+      key={index}
       className={`
       text-[#151515]
       ${

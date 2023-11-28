@@ -10,7 +10,7 @@ const statusOptions = [
   { text: 'Cancelled', disable: true, selected: false },
 ];
 
-const limitOptions = ['8', '12', '16', '20'];
+const limitOptions = ['10', '20', '30', '40', '50'];
 
 interface ListHeaderProps {
   limit: number;
@@ -43,7 +43,7 @@ const ListHeader = ({
     >
       <div className="flex h-auto overflow-">
         {statusOptions.map((option, index) => (
-          <ButtonSelect option={option} key={index} />
+          <ButtonSelect option={option} index={index} key={index} />
         ))}
       </div>
       <div className="flex justify-start gap-1">

@@ -1,7 +1,7 @@
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 
 interface ListPaginationControlProps {
-  maxPages?: number;
+  maxPages: number;
   page: number;
   disabled?: boolean;
   handlePage: (page: number) => void;
@@ -9,7 +9,7 @@ interface ListPaginationControlProps {
 
 const ListPaginationControl = ({
   page = 1,
-  maxPages = 8,
+  maxPages,
   disabled = false,
   handlePage,
 }: ListPaginationControlProps) => {

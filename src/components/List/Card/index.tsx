@@ -1,3 +1,4 @@
+import { IoMdEye } from 'react-icons/io';
 interface CardProps {
   data: {
     id: string;
@@ -28,19 +29,33 @@ const Card = ({ data }: CardProps) => {
   }
 
   return (
-    <button className="flex w-auto h-fit p-4 items-center border-b-2 rounded-md border-[#f1f1f1]">
-      <div className="p-2">
-        <img
-          src={data.picture}
-          alt="avatar"
-          className="rounded-2xl min-w-[72px] min-h-[72px]"
-        />
+    <div className="flex flex-col w-auto h-fit p-4 items-center border-b-2 rounded-md border-[#f1f1f1]">
+      <div className="flex flex-row">
+        <div className="p-2">
+          <img
+            src={data.picture}
+            alt="avatar"
+            className="rounded-2xl min-w-[72px] min-h-[72px]"
+          />
+        </div>
+        <div className="flex flex-col items-start p-2">
+          <div className="flex flex-row justify-between items-baseline w-full">
+            <p className="text-left text-sm">{title}</p>
+
+            <button
+              className="text-gray-400 p-1"
+              onClick={() => {
+                window.open(`https://en.wikipedia.org/wiki/${name}`, '_blank');
+              }}
+            >
+              <IoMdEye size="20" />
+            </button>
+          </div>
+          <p className="text-left text-base">{name}</p>
+          <p className="text-sm text-[#4AD697] break-all">{data.id}</p>
+        </div>
       </div>
-      <div className="flex flex-col items-start p-2">
-        <p className="text-left text-sm">{title}</p>
-        <p className="text-left text-base">{name}</p>
-      </div>
-    </button>
+    </div>
   );
 };
 

@@ -6,7 +6,7 @@ import { UserResponse } from '../../services/api';
 import { ListParams } from '../../types/list';
 
 interface ListProps {
-  data?: UserResponse; //todo: remove undefined
+  data?: UserResponse;
   loading?: boolean;
   page: number;
   limit: number;
