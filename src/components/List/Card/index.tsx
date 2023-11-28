@@ -1,19 +1,15 @@
 import { IoMdEye } from 'react-icons/io';
+import { User } from '../../../services/api';
 interface CardProps {
-  data: {
-    id: string;
-    title: string;
-    firstName: string;
-    lastName: string;
-    picture: string;
-  };
+  user: User;
+  onClick?: (user: User) => void;
 }
 
-const Card = ({ data }: CardProps) => {
-  const name = `${data.firstName} ${data.lastName}`;
+const Card = ({ user, onClick }: CardProps) => {
+  const name = `${user.firstName} ${user.lastName}`;
 
   let title = '';
-  switch (data.title) {
+  switch (user.title) {
     case 'ms':
       title = 'Ms';
       break;
@@ -33,7 +29,7 @@ const Card = ({ data }: CardProps) => {
       <div className="flex flex-row">
         <div className="p-2">
           <img
-            src={data.picture}
+            src={user.picture}
             alt="avatar"
             className="rounded-2xl min-w-[72px] min-h-[72px]"
           />
@@ -45,14 +41,14 @@ const Card = ({ data }: CardProps) => {
             <button
               className="text-gray-400 p-1"
               onClick={() => {
-                window.open(`https://en.wikipedia.org/wiki/${name}`, '_blank');
+                onClick?.(user);
               }}
             >
               <IoMdEye size="20" />
             </button>
           </div>
           <p className="text-left text-base">{name}</p>
-          <p className="text-sm text-[#4AD697] break-all">{data.id}</p>
+          <p className="text-sm text-[#4AD697] break-all">{user.id}</p>
         </div>
       </div>
     </div>

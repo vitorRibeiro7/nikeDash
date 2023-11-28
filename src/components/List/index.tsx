@@ -2,11 +2,12 @@ import { useState } from 'react';
 import ListPaginationControl from './ListPaginationControl';
 import Card from './Card';
 import ListHeader from './ListHeader';
-import { UserResponse } from '../../services/api';
+import { User, getAllUsersResponse } from '../../services/api';
 import { ListParams } from '../../types/list';
+import Modal from '../Modal';
 
 interface ListProps {
-  data?: UserResponse;
+  data?: getAllUsersResponse;
   loading?: boolean;
   page: number;
   limit: number;
@@ -23,9 +24,21 @@ const List = ({
   handleParams,
 }: ListProps) => {
   const [search, setSearch] = useState('');
+  const [open, setOpen] = useState(false);
+  const [modalData, setModalData] = useState<User>({
+    id: '',
+    firstName: '',
+    lastName: '',
+    title: '',
+    picture: '',
+  });
 
   const handleSearch = (search: string) => {
     setSearch(search);
+  };
+
+  const handleModalData = (user: User) => {
+    setModalData(user);
   };
 
   return (
@@ -45,7 +58,16 @@ const List = ({
           </div>
         ) : (
           <div className="grid gap-2 grid-cols-[1fr] h-fit w-full sm:grid-cols-[1fr,1fr] md:grid-cols-[1fr,1fr,1fr] lg:grid-cols-[1fr,1fr,1fr,1fr]">
-            {data?.data?.map((item) => <Card key={item.id} data={item} />)}
+            {data?.data?.map((item) => (
+              <Card
+                key={item.id}
+                user={item}
+                onClick={(user: User) => {
+                  setOpen(true);
+                  handleModalData(user);
+                }}
+              />
+            ))}
           </div>
         )}
       </div>
@@ -60,6 +82,15 @@ const List = ({
         disabled={loading}
         handlePage={(page) => handleParams?.({ page: page })}
       />
+      <Modal
+        open={open}
+        onClose={() => {
+          setOpen(false);
+        }}
+        position="center"
+      >
+        <p>{modalData?.firstName}</p>
+      </Modal>
     </div>
   );
 };
