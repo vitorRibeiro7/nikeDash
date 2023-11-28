@@ -17,7 +17,7 @@ export type User = {
   picture: string;
 };
 
-export type UserResponse = {
+export type getAllUsersResponse = {
   data: User[];
   total: number;
   page: number;
@@ -27,8 +27,8 @@ export type UserResponse = {
 export async function getUsers(
   page: number,
   limit: number
-): Promise<UserResponse> {
-  const { data } = await api.get<UserResponse>(
+): Promise<getAllUsersResponse> {
+  const { data } = await api.get<getAllUsersResponse>(
     `user?page=${page}&limit=${limit}`
   );
 
