@@ -50,11 +50,13 @@ const UserModal = ({ userId, open, onClose }: userModalProps) => {
               <p>Member details</p>
             </div>
             <div className="w-full mt-12 flex flex-col items-center">
-              <img
-                src={removerMedDaString(data?.picture || '')}
-                alt="member"
-                className="rounded-full"
-              />
+              <div className="w-[128px] h-[128px]">
+                <img
+                  src={removerMedDaString(data?.picture || '')}
+                  alt="member"
+                  className="rounded-full"
+                />
+              </div>
               <div className="w-full items-center flex justify-center flex-col">
                 <div className="mt-2 flex gap-1 items-baseline">
                   <p className="text-sm">{titleSwitch(data?.title || '')}.</p>
