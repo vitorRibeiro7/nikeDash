@@ -4,15 +4,15 @@ import Card from './Card';
 import ListHeader from './ListHeader';
 import { User, getAllUsersResponse } from '../../services/api';
 import { ListParams } from '../../types/list';
-import Modal from '../Modal';
+import UserModal from './UserModal';
 
 interface ListProps {
-  data?: getAllUsersResponse;
+  data: getAllUsersResponse;
   loading?: boolean;
   page: number;
   limit: number;
   maxPages: number;
-  handleParams?: (params: ListParams) => void;
+  handleParams: (params: ListParams) => void;
 }
 
 const List = ({
@@ -25,26 +25,16 @@ const List = ({
 }: ListProps) => {
   const [search, setSearch] = useState('');
   const [open, setOpen] = useState(false);
-  const [modalData, setModalData] = useState<User>({
-    id: '',
-    firstName: '',
-    lastName: '',
-    title: '',
-    picture: '',
-  });
+  const [seletctedUserId, setSelectedUserId] = useState('');
 
   const handleSearch = (search: string) => {
     setSearch(search);
   };
 
-  const handleModalData = (user: User) => {
-    setModalData(user);
-  };
-
   return (
     <div className={`flex flex-col w-full h-[100%] justify-between gap-1`}>
       <ListHeader
-        changeLimit={(limit) => handleParams?.({ limit: limit })}
+        changeLimit={(limit) => handleParams({ limit: limit })}
         changeSearch={handleSearch}
         limit={limit}
         search={search}
@@ -58,13 +48,13 @@ const List = ({
           </div>
         ) : (
           <div className="grid gap-2 grid-cols-[1fr] h-fit w-full sm:grid-cols-[1fr,1fr] md:grid-cols-[1fr,1fr,1fr] lg:grid-cols-[1fr,1fr,1fr,1fr]">
-            {data?.data?.map((item) => (
+            {data.data.map((item) => (
               <Card
                 key={item.id}
                 user={item}
                 onClick={(user: User) => {
                   setOpen(true);
-                  handleModalData(user);
+                  setSelectedUserId(user.id);
                 }}
               />
             ))}
@@ -72,7 +62,7 @@ const List = ({
         )}
       </div>
       <div className=" h-[5%]">
-        <p>
+        <p className="text-[#7c7c7c] text-sm">
           Page {page + 1} of {maxPages}
         </p>
       </div>
@@ -80,17 +70,13 @@ const List = ({
         maxPages={maxPages > 0 ? maxPages : 1}
         page={page}
         disabled={loading}
-        handlePage={(page) => handleParams?.({ page: page })}
+        handlePage={(page) => handleParams({ page: page })}
       />
-      <Modal
+      <UserModal
+        userId={seletctedUserId}
         open={open}
-        onClose={() => {
-          setOpen(false);
-        }}
-        position="center"
-      >
-        <p>{modalData?.firstName}</p>
-      </Modal>
+        onClose={() => setOpen(false)}
+      />
     </div>
   );
 };

@@ -3,22 +3,25 @@
 import { IoClose } from 'react-icons/io5';
 
 interface ModalProps {
+  children: React.ReactNode;
   open: boolean;
   position?: 'right' | 'left' | 'top' | 'bottom' | 'center';
+  isMobile?: boolean;
   onClose: () => void;
-  children: React.ReactNode;
 }
 
-const Modal = ({ open, position, onClose, children }: ModalProps) => {
+const Modal = ({ children, open, position, isMobile, onClose }: ModalProps) => {
   return (
     open && (
       <div>
         <div
-          className={`fixed top-0 left-0 w-full h-full bg-gray-900 bg-opacity-50 z-50`}
+          className={`fixed top-0 left-0 w-full h-full bg-black bg-opacity-80 z-50`}
           onClick={onClose}
         ></div>
         <div
-          className={`fixed w-auto bg-white p-4 rounded-md shadow-2xl z-50
+          className={`fixed w-auto bg-white p-4 shadow-2xl z-50 ${
+            isMobile && 'max-h-[85%] rounded-t-3xl'
+          } overflow-y-scroll
                 ${position === 'right' && 'right-0 top-0 h-screen'} 
                 ${position === 'left' && 'left-0 top-0 h-screen'} 
                 ${position === 'top' && 'top-0 left-0 w-screen'} 
@@ -27,7 +30,7 @@ const Modal = ({ open, position, onClose, children }: ModalProps) => {
                   position === 'center' &&
                   'top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2'
                 }
-           `}
+                `}
         >
           <div className="flex justify-end">
             <button onClick={onClose}>

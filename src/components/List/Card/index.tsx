@@ -1,5 +1,6 @@
 import { IoMdEye } from 'react-icons/io';
 import { User } from '../../../services/api';
+import titleSwitch from '../../../utils/titleSwitch';
 interface CardProps {
   user: User;
   onClick?: (user: User) => void;
@@ -8,21 +9,7 @@ interface CardProps {
 const Card = ({ user, onClick }: CardProps) => {
   const name = `${user.firstName} ${user.lastName}`;
 
-  let title = '';
-  switch (user.title) {
-    case 'ms':
-      title = 'Ms';
-      break;
-    case 'mr':
-      title = 'Mr';
-      break;
-    case 'miss':
-      title = 'Miss';
-      break;
-    case 'mrs':
-      title = 'Mrs';
-      break;
-  }
+  const title = titleSwitch(user.title);
 
   return (
     <div className="flex flex-col w-auto h-fit p-4 items-center border-b-2 rounded-md border-[#f1f1f1]">

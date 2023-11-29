@@ -86,17 +86,9 @@ const Sidebar = ({
                   }
                 }}
               >
-                <span
-                  className={`${
-                    active === item.name ? 'text-[#151515]' : 'text-[#A4A4A4]'
-                  }`}
-                >
-                  {item.icon}{' '}
-                </span>
+                <span className={`text-[#151515]'`}>{item.icon} </span>
                 <h2
-                  className={`ml-2 ${
-                    active === item.name ? 'text-[#151515]' : 'text-[#A4A4A4]'
-                  } ${
+                  className={`ml-2 text-[#151515] ${
                     !isMobile && 'hidden'
                   } lg:block text-xl whitespace-pre overflow-hidden transition-all duration-500`}
                 >

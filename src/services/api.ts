@@ -38,3 +38,34 @@ export async function getUsers(
 
   return data;
 }
+
+export type getUserByIdResponse = {
+  id: string;
+  title: string;
+  firstName: string;
+  lastName: string;
+  picture: string;
+  gender: string;
+  email: string;
+  dateOfBirth: string;
+  phone: string;
+  location: {
+    street: string;
+    city: string;
+    state: string;
+    country: string;
+    timezone: string;
+  };
+  registerDate: string;
+  updatedAt: string;
+};
+
+export async function getUserById(id: string) {
+  const { data } = await api.get<getUserByIdResponse>(`user/${id}`);
+
+  if (!data) {
+    throw new Error('Failed to get data :p');
+  }
+
+  return data;
+}
