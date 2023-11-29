@@ -14,7 +14,10 @@ const ListMembers = () => {
     useQuery<getAllUsersResponse>(
       'users',
       () => getUsers(params.page, params.limit),
-      { staleTime: 1000 * 60 * 1, cacheTime: 10 }
+      {
+        staleTime: 1000 * 60 * 1,
+        cacheTime: 10,
+      }
     );
 
   useEffect(() => {
@@ -42,7 +45,7 @@ const ListMembers = () => {
     <>
       <h1 className="text-2xl md:text-4xl">Members</h1>
       <List
-        data={data}
+        data={data!}
         limit={params.limit}
         page={params.page}
         maxPages={maxPages}

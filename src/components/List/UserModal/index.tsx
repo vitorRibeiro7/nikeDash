@@ -35,7 +35,7 @@ const UserModal = ({ userId, open, onClose }: userModalProps) => {
       isMobile={width < 640}
     >
       <div
-        className={`flex p-2 min-w-[30vw]  ${
+        className={`flex p-2 min-w-[60vw] lg:min-w-[30vw] xl:minn-w-[20vw] ${
           isLoading ||
           (isFetching && 'justify-center items-center w-full h-full')
         }`}
@@ -45,50 +45,85 @@ const UserModal = ({ userId, open, onClose }: userModalProps) => {
             <CircularProgress color="#4AD697" />
           </div>
         ) : (
-          <div className="w-full">
-            <div className="flex gap-6 flex-col">
-              <div className="flex flex-col gap-2">
-                <div className="w-full flex items-center justify-center">
-                  {data?.picture && (
-                    <img
-                      src={removerMedDaString(data.picture)}
-                      alt="user"
-                      className="rounded-md"
-                    />
-                  )}
+          <div className="w-full h-full">
+            <div className="flex justify-center items-center">
+              <p>Member details</p>
+            </div>
+            <div className="w-full mt-12 flex flex-col items-center">
+              <img
+                src={removerMedDaString(data?.picture || '')}
+                alt="member"
+                className="rounded-full"
+              />
+              <div className="w-full items-center flex justify-center flex-col">
+                <div className="mt-2 flex gap-1 items-baseline">
+                  <p className="text-sm">{titleSwitch(data?.title || '')}.</p>
+                  <p className="text-lg font-medium">
+                    {data?.firstName} {data?.lastName}
+                  </p>
                 </div>
                 <div>
-                  <div className="flex items-baseline justify-start gap-1">
-                    <p>{titleSwitch(data?.title ? data.title : '')}.</p>
-                    <h1 className="text-xl ">
-                      {data?.firstName} {data?.lastName}
-                    </h1>
-                  </div>
-                  <p>Gender: {data?.gender}</p>
-                  <p>
-                    Birth:{' '}
-                    {formatDate(data?.dateOfBirth ? data?.dateOfBirth : '')}
-                  </p>
-                  <p>Email: {data?.email}</p>
-                  <p>Phone: {data?.phone}</p>
+                  <p className="text-sm text-[#4AD697]">{data?.email}</p>
                 </div>
               </div>
-              <div>
-                <div className="flex items-center justify-center">
-                  <p className="text-xl font-bold">Location:</p>
-                  <div className="w-full h-[1px] bg-gray-400 ml-5"></div>
-                </div>
+            </div>
+            <div className="w-full h-[1px] bg-zinc-400 my-8"></div>
+            <div className="flex flex-col w-full">
+              <div className="flex justify-between">
+                <p>Name:</p>
                 <p>
-                  {data?.location?.street}, {data?.location?.city},{' '}
-                  {data?.location?.state}, {data?.location?.country}
+                  {data?.firstName} {data?.lastName}
                 </p>
+              </div>
+              <div className="flex justify-between">
+                <p>First name:</p>
+                <p>{data?.firstName}</p>
+              </div>
+              <div className="flex justify-between">
+                <p>Last name:</p>
+                <p>{data?.lastName}</p>
+              </div>
+              <div className="flex justify-between">
+                <p>Gender</p>
+                <p>{data?.gender}</p>
+              </div>
+              <div className="flex justify-between">
+                <p>Birth:</p>
+                <p>{formatDate(data?.dateOfBirth || '')}</p>
+              </div>
+              <div className="flex justify-between">
+                <p>Phone:</p>
+                <p>{data?.phone}</p>
+              </div>
+              <div className="flex justify-between">
+                <p>Email:</p>
+                <p>{data?.email}</p>
+              </div>
+            </div>
+            <div className="w-full h-[1px] bg-zinc-400 my-8"></div>
+            <div className="flex flex-col w-full">
+              <div className="flex justify-between">
+                <p>Street:</p>
+                <p>{data?.location?.street}</p>
+              </div>
+              <div className="flex justify-between">
+                <p>City:</p>
+                <p>{data?.location?.city}</p>
+              </div>
+              <div className="flex justify-between">
+                <p>State:</p>
+                <p>{data?.location?.state}</p>
+              </div>
+              <div className="flex justify-between">
+                <p>Country:</p>
+                <p>{data?.location?.country}</p>
+              </div>
+              <div className="flex justify-between">
+                <p>Timezone:</p>
                 <p>
-                  Timezone: {data?.location?.timezone}{' '}
-                  {data?.location?.timezone && (
-                    <span className="text-gray-400">
-                      (UTC {data?.location?.timezone})
-                    </span>
-                  )}
+                  <span className="text-gray-600">
+                    (UTC {data?.location?.timezone})
+                  </span>
                 </p>
               </div>
             </div>
@@ -100,24 +135,3 @@ const UserModal = ({ userId, open, onClose }: userModalProps) => {
 };
 
 export default UserModal;
-
-// {
-// 	"id": "60d0fe4f5311236168a10a1c",
-// 	"title": "miss",
-// 	"firstName": "Abigail",
-// 	"lastName": "Liu",
-// 	"picture": "https://randomuser.me/api/portraits/med/women/83.jpg",
-// 	"gender": "female",
-// 	"email": "abigail.liu@example.com",
-// 	"dateOfBirth": "1973-08-20T23:32:33.104Z",
-// 	"phone": "200-877-5652",
-// 	"location": {
-// 		"street": "6721, George St",
-// 		"city": "Jasper",
-// 		"state": "Newfoundland and Labrador",
-// 		"country": "Canada",
-// 		"timezone": "+5:30"
-// 	},
-// 	"registerDate": "2021-06-21T21:02:21.235Z",
-// 	"updatedDate": "2021-06-21T21:02:21.235Z"
-// }
