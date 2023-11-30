@@ -69,7 +69,7 @@ A aplicação utiliza React com Typescript e Tailwind CSS para criar uma interfa
     $ npm install
 
     # Inicie o servidor
-    $ npm start
+    $ npm run dev
 ```
 ---
 
