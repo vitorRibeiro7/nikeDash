@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import Header from '../Header';
-import Sidebar from '../Sidebar';
+import Sidebar from './Sidebar';
 
 import { FaFolder, FaUsers } from 'react-icons/fa';
 import { AiFillControl } from 'react-icons/ai';

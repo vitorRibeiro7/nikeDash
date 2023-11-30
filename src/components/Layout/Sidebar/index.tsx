@@ -1,10 +1,10 @@
-import NikeLogo from '../../assets/logos/nike.svg';
+import NikeLogo from '../../../assets/logos/nike.svg';
 import { useCallback, useEffect, useState } from 'react';
 
 import { IoClose } from 'react-icons/io5';
 
 import { useNavigate } from 'react-router-dom';
-import { Itens } from '../Layout';
+import { Itens } from '..';
 
 interface SidebarProps {
   itens: Itens;
