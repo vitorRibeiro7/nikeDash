@@ -18,7 +18,7 @@ const Card = ({ user, onClick }: CardProps) => {
           <img
             src={user.picture}
             alt="avatar"
-            className="rounded-2xl min-w-[72px] min-h-[72px]"
+            className="rounded-full min-w-[72px] min-h-[72px]"
           />
         </div>
         <div className="flex flex-col items-start p-2">
