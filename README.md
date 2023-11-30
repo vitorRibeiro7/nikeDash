@@ -6,14 +6,14 @@
 <b> Importante: </b>Este projeto é completamente fictício e não possui nenhuma afiliação, associação ou ligação com a marca Nike. O uso do nome "Nike" é estritamente para fins ilustrativos.
 </p>
 <div align="center">
-<a href="https://github.com/vitorRibeiro7/nikeDash-viptech" target="_blank">
-<img src="https://img.shields.io/tokei/lines/github/vitorRibeiro7/nikeDash-viptech?style=for-the-badge">
+<a href="https://github.com/vitorRibeiro7/nikeDash" target="_blank">
+<img src="https://img.shields.io/tokei/lines/github/vitorRibeiro7/nikeDash?style=for-the-badge">
 </a>
-<a href="https://github.com/vitorRibeiro7/nikeDash-viptech" target="_blank">
-<img src="https://img.shields.io/github/license/vitorRibeiro7/nikeDash-viptech?style=for-the-badge">
+<a href="https://github.com/vitorRibeiro7/nikeDash" target="_blank">
+<img src="https://img.shields.io/github/license/vitorRibeiro7/nikeDash?style=for-the-badge">
 </a>
-<a href="https://github.com/vitorRibeiro7/nikeDash-viptech" target="_blank">
-<img src="https://img.shields.io/github/contributors/vitorRibeiro7/nikeDash-viptech?style=for-the-badge">
+<a href="https://github.com/vitorRibeiro7/nikeDash" target="_blank">
+<img src="https://img.shields.io/github/contributors/vitorRibeiro7/nikeDash?style=for-the-badge">
 </a>
 </div>
 
@@ -52,7 +52,7 @@ A aplicação utiliza React com Typescript e Tailwind CSS para criar uma interfa
 - [Tailwind](https://tailwindcss.com)
 - [Axios](https://axios-http.com/ptbr/)
 
-> Veja o arquivo  [package.json](https://github.com/vitorRibeiro7/nikeDash-viptech/blob/main/package.json) para mais detalhes.
+> Veja o arquivo  [package.json](https://github.com/vitorRibeiro7/nikeDash/blob/main/package.json) para mais detalhes.
 
 
 ---
@@ -60,10 +60,10 @@ A aplicação utiliza React com Typescript e Tailwind CSS para criar uma interfa
 
 ```bash
     # Clone este repositório
-    $ git clone https://github.com/vitorRibeiro7/nikeDash-viptech.git
+    $ git clone https://github.com/vitorRibeiro7/nikeDash.git
 
     # Acesse a pasta do projeto
-    $ cd nikeDash-viptech
+    $ cd nikeDash
 
     # Instale as dependências
     $ npm install
