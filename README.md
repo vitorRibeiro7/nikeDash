@@ -3,7 +3,7 @@
 <div id="topo"></div>
 <h1 align="center"><strong>Nike Dash</strong></h1>
 <p align="justify">
-<b> Importante: </b>Este projeto é completamente fictício e não possui nenhuma afiliação, associação ou ligação com a marca Nike. O uso do nome "Nike" é estritamente para fins ilustrativos e como referência no contexto deste teste para a vaga de desenvolvedor front-end.
+<b> Importante: </b>Este projeto é completamente fictício e não possui nenhuma afiliação, associação ou ligação com a marca Nike. O uso do nome "Nike" é estritamente para fins ilustrativos.
 </p>
 <div align="center">
 <a href="https://github.com/vitorRibeiro7/nikeDash-viptech" target="_blank">
