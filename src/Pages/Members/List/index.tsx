@@ -16,6 +16,10 @@ const ListMembers = () => {
     search: '',
   });
 
+  useEffect(() => {
+    localStorage.setItem('active', 'Members');
+  }, []);
+
   const getAllUsersQuery = useQuery<getAllUsersResponse>(
     'getAllUsers',
     () => getUsers(params.page, params.limit),
