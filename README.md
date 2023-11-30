@@ -7,13 +7,10 @@
 </p>
 <div align="center">
 <a href="https://github.com/vitorRibeiro7/nikeDash" target="_blank">
-<img src="https://img.shields.io/tokei/lines/github/vitorRibeiro7/nikeDash?style=for-the-badge">
+<img src="https://img.shields.io/github/license/vitorRibeiro7/nikeDash?style=for-the-badge&color=4AD697">
 </a>
 <a href="https://github.com/vitorRibeiro7/nikeDash" target="_blank">
-<img src="https://img.shields.io/github/license/vitorRibeiro7/nikeDash?style=for-the-badge">
-</a>
-<a href="https://github.com/vitorRibeiro7/nikeDash" target="_blank">
-<img src="https://img.shields.io/github/contributors/vitorRibeiro7/nikeDash?style=for-the-badge">
+<img src="https://img.shields.io/github/contributors/vitorRibeiro7/nikeDash?style=for-the-badge&color=4AD697">
 </a>
 </div>
 
