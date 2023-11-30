@@ -19,25 +19,30 @@ const Modal = ({ children, open, position, isMobile, onClose }: ModalProps) => {
           onClick={onClose}
         ></div>
         <div
-          className={`fixed w-auto bg-white p-2 shadow-2xl z-50 ${
-            isMobile && 'max-h-[85%] rounded-t-3xl'
-          } overflow-hidden
-                ${position === 'right' && 'right-0 top-0 h-screen'} 
-                ${position === 'left' && 'left-0 top-0 h-screen'} 
-                ${position === 'top' && 'top-0 left-0 w-screen'} 
-                ${position === 'bottom' && 'bottom-0 left-0 w-full'}
+          className={`
+                fixed bg-white p-2 shadow-2xl z-50
+                ${isMobile ? 'max-h-[85%] rounded-t-3xl' : ''} 
+                ${position === 'right' ? 'right-0 top-0 h-screen' : ''} 
+                ${position === 'left' ? 'left-0 top-0 h-screen' : ''} 
+                ${position === 'top' ? 'top-0 left-0 w-screen' : ''} 
                 ${
-                  position === 'center' &&
-                  'top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2'
+                  position === 'bottom'
+                    ? 'bottom-0 left-0 w-screen overflow-y-scroll'
+                    : ''
+                }
+                ${
+                  position === 'center'
+                    ? 'top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2'
+                    : ''
                 }
                 `}
         >
-          <div className="flex justify-end ">
+          <div className="flex justify-end">
             <button onClick={onClose}>
               <IoClose size="24" />
             </button>
           </div>
-          <div className="h-full overflow-auto pb-5">{children}</div>
+          <div className="h-full w-full overflow-y-scroll pb-5">{children}</div>
         </div>
       </div>
     )

@@ -13,7 +13,7 @@ const Card = ({ user, onClick }: CardProps) => {
 
   return (
     <div className="flex flex-col w-auto h-fit p-4 items-center border-b-2 rounded-md border-[#f1f1f1]">
-      <div className="flex flex-row flex-wrap">
+      <div className="flex flex-row">
         <div className="p-2">
           <img
             src={user.picture}
