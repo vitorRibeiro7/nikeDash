@@ -35,7 +35,7 @@ const Card = ({ user, onClick }: CardProps) => {
             </button>
           </div>
           <p className="text-left text-base">{name}</p>
-          <p className="text-sm text-[#4AD697] break-all">{user.id}</p>
+          <p className="text-[12px] text-[#4AD697] break-all">{user.id}</p>
         </div>
       </div>
     </div>

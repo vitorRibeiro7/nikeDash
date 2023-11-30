@@ -46,7 +46,7 @@ const List = ({
             <p className="text-center">Failed to find you search</p>
           </div>
         ) : (
-          <div className="grid gap-2 grid-cols-[1fr] h-fit w-full sm:grid-cols-[1fr,1fr] md:grid-cols-[1fr,1fr,1fr] lg:grid-cols-[1fr,1fr,1fr,1fr]">
+          <div className="grid gap-2 grid-cols-[1fr] h-fit w-full sm:grid-cols-[1fr,1fr] md:grid-cols-[1fr,1fr,1fr]">
             {data?.data.map((item) => (
               <Card
                 key={item.id}

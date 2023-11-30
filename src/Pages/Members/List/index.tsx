@@ -112,18 +112,3 @@ const ListMembers = () => {
 };
 
 export default ListMembers;
-
-// export type getAllUsersResponse = {
-//   data: User[];
-//   total: number;
-//   page: number;
-//   limit: number;
-// };
-
-// export type User = {
-//   id: string;
-//   title: string;
-//   firstName: string;
-//   lastName: string;
-//   picture: string;
-// };
